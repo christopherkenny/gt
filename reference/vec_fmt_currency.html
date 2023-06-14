@@ -22,12 +22,13 @@ large-number suffixing: larger figures (thousands, millions, etc.) can
 be autoscaled and decorated with the appropriate suffixes
 pattern: option to use a text pattern for decoration of the formatted
 currency values
-locale-based formatting: providing a locale ID will result in
-currency formatting specific to the chosen locale
+locale-based formatting: providing a locale ID will result in currency
+formatting specific to the chosen locale; it will also retrieve the locale's
+currency if none is explicitly given
 
 
 We can use the info_currencies() function for a useful reference on all of
-the possible inputs to the currency argument."><title>Format a vector as currency values — vec_fmt_currency • gt</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Format a vector as currency values — vec_fmt_currency"><meta property="og:description" content="With numeric values in a vector, we can perform currency-based formatting.
+the possible inputs to the currency argument."><title>Format a vector as currency values — vec_fmt_currency • gt</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet"><meta property="og:title" content="Format a vector as currency values — vec_fmt_currency"><meta property="og:description" content="With numeric values in a vector, we can perform currency-based formatting.
 This function supports both automatic formatting with a three-letter or
 numeric currency code. We can also specify a custom currency that is
 formatted according to the output context with the currency() helper
@@ -50,8 +51,9 @@ large-number suffixing: larger figures (thousands, millions, etc.) can
 be autoscaled and decorated with the appropriate suffixes
 pattern: option to use a text pattern for decoration of the formatted
 currency values
-locale-based formatting: providing a locale ID will result in
-currency formatting specific to the chosen locale
+locale-based formatting: providing a locale ID will result in currency
+formatting specific to the chosen locale; it will also retrieve the locale's
+currency if none is explicitly given
 
 
 We can use the info_currencies() function for a useful reference on all of
@@ -62,11 +64,11 @@ the possible inputs to the currency argument."><meta property="og:image" content
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">gt</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.8.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,6 +82,7 @@ the possible inputs to the currency argument."><meta property="og:image" content
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/case-study-clinical-tables.html">Case Study: Clinical Tables</a>
     <a class="dropdown-item" href="../articles/case-study-gtcars.html">Case Study: gtcars</a>
     <a class="dropdown-item" href="../articles/creating-summary-lines.html">Creating Summary Lines</a>
     <a class="dropdown-item" href="../articles/gt-datasets.html">gt Datasets</a>
@@ -136,8 +139,9 @@ and provide a choice of separator symbol</p></li>
 be autoscaled and decorated with the appropriate suffixes</p></li>
 <li><p>pattern: option to use a text pattern for decoration of the formatted
 currency values</p></li>
-<li><p>locale-based formatting: providing a locale ID will result in
-currency formatting specific to the chosen locale</p></li>
+<li><p>locale-based formatting: providing a locale ID will result in currency
+formatting specific to the chosen locale; it will also retrieve the locale's
+currency if none is explicitly given</p></li>
 </ul><p>We can use the <code><a href="info_currencies.html">info_currencies()</a></code> function for a useful reference on all of
 the possible inputs to the <code>currency</code> argument.</p>
     </div>
@@ -146,7 +150,7 @@ the possible inputs to the <code>currency</code> argument.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">vec_fmt_currency</span><span class="op">(</span></span>
 <span>  <span class="va">x</span>,</span>
-<span>  currency <span class="op">=</span> <span class="st">"USD"</span>,</span>
+<span>  currency <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  use_subunits <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  decimals <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  drop_trailing_dec_mark <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -168,11 +172,16 @@ the possible inputs to the <code>currency</code> argument.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
-<dd><p>A numeric vector.</p></dd>
+<dd><p><em>The input vector</em></p>
+<p><code>vector(numeric|integer)</code> --- <strong>required</strong></p>
+<p>This is the input vector that will undergo transformation to a character
+vector of the same length. Values within the vector will be formatted.</p></dd>
 
 
 <dt>currency</dt>
-<dd><p>The currency to use for the numeric value. This input can be
+<dd><p><em>Currency to use</em></p>
+<p><code>scalar&lt;character&gt;|obj:&lt;gt_currency&gt;</code> --- <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
+<p>The currency to use for the numeric value. This input can be
 supplied as a 3-letter currency code (e.g., <code>"USD"</code> for U.S. Dollars,
 <code>"EUR"</code> for the Euro currency). Use <code><a href="info_currencies.html">info_currencies()</a></code> to get an
 information table with all of the valid currency codes and examples of
@@ -187,113 +196,162 @@ using <code>currency(html = "&amp;fnof;", default = "f")</code> would give us a 
 glyph for the Dutch guilder in an HTML output table, and it would simply be
 the letter "f" in all other output contexts). Please note that <code>decimals</code>
 will default to <code>2</code> when using the <code><a href="currency.html">currency()</a></code> helper function.</p>
-<p>If nothing is provided to <code>currency</code> then <code>"USD"</code> (U.S. dollars) will be
-used.</p></dd>
+<p>If nothing is provided here but a <code>locale</code> value has been set (either in
+this function call or as part of the initial <code><a href="gt.html">gt()</a></code> call), the currency
+will be obtained from that locale. Virtually all locales are linked to a
+territory that is a country (use <code><a href="info_locales.html">info_locales()</a></code> for details on all
+locales used in this package), so, the in-use (or <em>de facto</em>) currency will
+be obtained. As the default locale is <code>"en"</code>, the <code>"USD"</code> currency will be
+used if neither a <code>locale</code> nor a <code>currency</code> value is given.</p></dd>
 
 
 <dt>use_subunits</dt>
-<dd><p>An option for whether the subunits portion of a currency
-value should be displayed. By default, this is <code>TRUE</code>.</p></dd>
+<dd><p><em>Show or hide currency subunits</em></p>
+<p><code>scalar&lt;logical&gt;</code> --- <em>default:</em> <code>TRUE</code></p>
+<p>An option for whether the subunits portion of a currency value should be
+displayed. For example, with an input value of <code>273.81</code>, the default
+formatting will produce <code>"$273.81"</code>. Removing the subunits (with
+<code>use_subunits = FALSE</code>) will give us <code>"$273"</code>.</p></dd>
 
 
 <dt>decimals</dt>
-<dd><p>An option to specify the exact number of decimal places to
-use. The default number of decimal places is <code>2</code>.</p></dd>
+<dd><p><em>Number of decimal places</em></p>
+<p><code>scalar&lt;numeric|integer&gt;(val&gt;=0)</code> --- <em>default:</em> <code>2</code></p>
+<p>This corresponds to the exact number of decimal places to use. A value
+such as <code>2.34</code> can, for example, be formatted with <code>0</code> decimal places and
+it would result in <code>"2"</code>. With <code>4</code> decimal places, the formatted value
+becomes <code>"2.3400"</code>. The trailing zeros can be removed with
+<code>drop_trailing_zeros = TRUE</code>. If you always need <code>decimals = 0</code>, the
+<code><a href="fmt_integer.html">fmt_integer()</a></code> function should be considered.</p></dd>
 
 
 <dt>drop_trailing_dec_mark</dt>
-<dd><p>A logical value that determines whether decimal
-marks should always appear even if there are no decimal digits to display
-after formatting (e.g, <code>23</code> becomes <code>23.</code>). The default for this is <code>TRUE</code>,
-which means that trailing decimal marks are not shown.</p></dd>
+<dd><p><em>Drop the trailing decimal mark</em></p>
+<p><code>scalar&lt;logical&gt;</code> --- <em>default:</em> <code>TRUE</code></p>
+<p>A logical value that determines whether decimal marks should always appear
+even if there are no decimal digits to display after formatting (e.g., <code>23</code>
+becomes <code>23.</code> if <code>FALSE</code>). By default trailing decimal marks are not shown.</p></dd>
 
 
 <dt>use_seps</dt>
-<dd><p>An option to use digit group separators. The type of digit
-group separator is set by <code>sep_mark</code> and overridden if a locale ID is
-provided to <code>locale</code>. This setting is <code>TRUE</code> by default.</p></dd>
+<dd><p><em>Use digit group separators</em></p>
+<p><code>scalar&lt;logical&gt;</code> --- <em>default:</em> <code>TRUE</code></p>
+<p>An option to use digit group separators. The type of digit group separator
+is set by <code>sep_mark</code> and overridden if a locale ID is provided to <code>locale</code>.
+This setting is <code>TRUE</code> by default.</p></dd>
 
 
 <dt>accounting</dt>
-<dd><p>An option to use accounting style for values. With <code>FALSE</code>
-(the default), negative values will be shown with a minus sign. Using
-<code>accounting = TRUE</code> will put negative values in parentheses.</p></dd>
+<dd><p><em>Use accounting style</em></p>
+<p><code>scalar&lt;logical&gt;</code> --- <em>default:</em> <code>FALSE</code></p>
+<p>An option to use accounting style for values. Normally, negative values
+will be shown with a minus sign but using accounting style will instead put
+any negative values in parentheses.</p></dd>
 
 
 <dt>scale_by</dt>
-<dd><p>A value to scale the input. The default is <code>1.0</code>. All numeric
-values will be multiplied by this value first before undergoing formatting.
-This value will be ignored if using any of the <code>suffixing</code> options (i.e.,
-where <code>suffixing</code> is not set to <code>FALSE</code>).</p></dd>
+<dd><p><em>Scale values by a fixed multiplier</em></p>
+<p><code>scalar&lt;numeric|integer&gt;</code> --- <em>default:</em> <code>1</code></p>
+<p>All numeric values will be multiplied by the <code>scale_by</code> value before
+undergoing formatting. Since the <code>default</code> value is <code>1</code>, no values will be
+changed unless a different multiplier value is supplied. This value will be
+ignored if using any of the <code>suffixing</code> options (i.e., where <code>suffixing</code> is
+not set to <code>FALSE</code>).</p></dd>
 
 
 <dt>suffixing</dt>
-<dd><p>An option to scale and apply suffixes to larger numbers
-(e.g., <code>1924000</code> can be transformed to <code>1.92M</code>). This option can accept a
-logical value, where <code>FALSE</code> (the default) will not perform this
-transformation and <code>TRUE</code> will apply thousands (<code>K</code>), millions (<code>M</code>),
-billions (<code>B</code>), and trillions (<code>T</code>) suffixes after automatic value scaling.
-We can also specify which symbols to use for each of the value ranges by
-using a character vector of the preferred symbols to replace the defaults
-(e.g., <code>c("k", "Ml", "Bn", "Tr")</code>).</p>
+<dd><p><em>Specification for large-number suffixing</em></p>
+<p><code>scalar&lt;logical&gt;|vector&lt;character&gt;</code> --- <em>default:</em> <code>FALSE</code></p>
+<p>The <code>suffixing</code> option allows us to scale and apply suffixes to larger
+numbers (e.g., <code>1924000</code> can be transformed to <code>1.92M</code>). This option can
+accept a logical value, where <code>FALSE</code> (the default) will not perform this
+transformation and <code>TRUE</code> will apply thousands (<code>"K"</code>), millions (<code>"M"</code>),
+billions (<code>"B"</code>), and trillions (<code>"T"</code>) suffixes after automatic value
+scaling.</p>
+<p>We can alternatively provide a character vector that serves as a
+specification for which symbols are to used for each of the value ranges.
+These preferred symbols will replace the defaults (e.g.,
+<code>c("k", "Ml", "Bn", "Tr")</code> replaces <code>"K"</code>, <code>"M"</code>, <code>"B"</code>, and <code>"T"</code>).</p>
 <p>Including <code>NA</code> values in the vector will ensure that the particular range
-will either not be included in the transformation (e.g, <code>c(NA, "M", "B", "T")</code> won't modify numbers in the thousands range) or the range will
-inherit a previous suffix (e.g., with <code>c("K", "M", NA, "T")</code>, all numbers
-in the range of millions and billions will be in terms of millions).</p>
+will either not be included in the transformation (e.g.,
+<code>c(NA, "M", "B", "T")</code> won't modify numbers at all in the thousands range)
+or the range will inherit a previous suffix (e.g., with
+<code>c("K", "M", NA, "T")</code>, all numbers in the range of millions and billions
+will be in terms of millions).</p>
 <p>Any use of <code>suffixing</code> (where it is not set expressly as <code>FALSE</code>) means
 that any value provided to <code>scale_by</code> will be ignored.</p></dd>
 
 
 <dt>pattern</dt>
-<dd><p>A formatting pattern that allows for decoration of the
-formatted value. The value itself is represented by <code>{x}</code> and all other
-characters are taken to be string literals.</p></dd>
+<dd><p><em>Specification of the formatting pattern</em></p>
+<p><code>scalar&lt;character&gt;</code> --- <em>default:</em> <code>"{x}"</code></p>
+<p>A formatting pattern that allows for decoration of the formatted value. The
+formatted value is represented by the <code>{x}</code> (which can be used multiple
+times, if needed) and all other characters will be interpreted as string
+literals.</p></dd>
 
 
 <dt>sep_mark</dt>
-<dd><p>The mark to use as a separator between groups of digits
-(e.g., using <code>sep_mark = ","</code> with <code>1000</code> would result in a formatted value
-of <code>1,000</code>).</p></dd>
+<dd><p><em>Separator mark for digit grouping</em></p>
+<p><code>scalar&lt;character&gt;</code> --- <em>default:</em> <code>","</code></p>
+<p>The string to use as a separator between groups of digits. For example,
+using <code>sep_mark = ","</code> with a value of <code>1000</code> would result in a formatted
+value of <code>"1,000"</code>. This argument is ignored if a <code>locale</code> is supplied
+(i.e., is not <code>NULL</code>).</p></dd>
 
 
 <dt>dec_mark</dt>
-<dd><p>The character to use as a decimal mark (e.g., using
-<code>dec_mark = ","</code> with <code>0.152</code> would result in a formatted value of
-<code>0,152</code>).</p></dd>
+<dd><p><em>Decimal mark</em></p>
+<p><code>scalar&lt;character&gt;</code> --- <em>default:</em> <code>"."</code></p>
+<p>The string to be used as the decimal mark. For example, using
+<code>dec_mark = ","</code> with the value <code>0.152</code> would result in a formatted value
+of <code>"0,152"</code>). This argument is ignored if a <code>locale</code> is supplied (i.e., is
+not <code>NULL</code>).</p></dd>
 
 
 <dt>force_sign</dt>
-<dd><p>Should the positive sign be shown for positive values
-(effectively showing a sign for all values except zero)? If so, use <code>TRUE</code>
-for this option. The default is <code>FALSE</code>, where only negative numbers will
-display a minus sign. This option is disregarded when using accounting
-notation with <code>accounting = TRUE</code>.</p></dd>
+<dd><p><em>Forcing the display of a positive sign</em></p>
+<p><code>scalar&lt;logical&gt;</code> --- <em>default:</em> <code>FALSE</code></p>
+<p>Should the positive sign be shown for positive values (effectively showing
+a sign for all values except zero)? If so, use <code>TRUE</code> for this option. The
+default is <code>FALSE</code>, where only negative numbers will display a minus sign.
+This option is disregarded when using accounting notation with
+<code>accounting = TRUE</code>.</p></dd>
 
 
 <dt>placement</dt>
-<dd><p>The placement of the currency symbol. This can be either be
-<code>left</code> (the default) or <code>right</code>.</p></dd>
+<dd><p><em>Currency symbol placement</em></p>
+<p><code>scalar&lt;character&gt;</code> --- <em>default:</em> <code>"left"</code></p>
+<p>The placement of the currency symbol. This can be either be <code>left</code> (as
+in <code>"$450"</code>) or <code>right</code> (which yields <code>"450$"</code>).</p></dd>
 
 
 <dt>incl_space</dt>
-<dd><p>An option for whether to include a space between the value
-and the currency symbol. The default is to not introduce a space character.</p></dd>
+<dd><p><em>Include a space between the value and the currency symbol</em></p>
+<p><code>scalar&lt;logical&gt;</code> --- <em>default:</em> <code>FALSE</code></p>
+<p>An option for whether to include a space between the value and the currency
+symbol. The default is to not introduce a space character.</p></dd>
 
 
 <dt>locale</dt>
-<dd><p>An optional locale ID that can be used for formatting the value
+<dd><p><em>Locale identifier</em></p>
+<p><code>scalar&lt;character&gt;</code> --- <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
+<p>An optional locale identifier that can be used for formatting values
 according the locale's rules. Examples include <code>"en"</code> for English (United
-States) and <code>"fr"</code> for French (France). The use of a valid locale ID will
-override any values provided in <code>sep_mark</code> and <code>dec_mark</code>. We can use the
-<code><a href="info_locales.html">info_locales()</a></code> function as a useful reference for all of the locales that
-are supported.</p></dd>
+States) and <code>"fr"</code> for French (France). We can use the <code><a href="info_locales.html">info_locales()</a></code>
+function as a useful reference for all of the locales that are supported. A
+locale ID can be also set in the initial <code><a href="gt.html">gt()</a></code> function call (where it
+would be used automatically by any function with a <code>locale</code> argument) but a
+<code>locale</code> value provided here will override that global locale.</p></dd>
 
 
 <dt>output</dt>
-<dd><p>The output style of the resulting character vector. This can
-either be <code>"auto"</code> (the default), <code>"plain"</code>, <code>"html"</code>, <code>"latex"</code>, <code>"rtf"</code>,
-or <code>"word"</code>. In <strong>knitr</strong> rendering (i.e., Quarto or R Markdown), the
-<code>"auto"</code> option will choose the correct <code>output</code> value</p></dd>
+<dd><p><em>Output format</em></p>
+<p><code>singl-kw:[auto|plain|html|latex|rtf|word]</code> --- <em>default:</em> <code>"auto"</code></p>
+<p>The output style of the resulting character vector. This can either be
+<code>"auto"</code> (the default), <code>"plain"</code>, <code>"html"</code>, <code>"latex"</code>, <code>"rtf"</code>, or
+<code>"word"</code>. In <strong>knitr</strong> rendering (i.e., Quarto or R Markdown), the <code>"auto"</code>
+option will choose the correct <code>output</code> value</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -315,39 +373,48 @@ vector where the numeric values have been transformed to U.S. Dollars
 specified in the <code>output</code> argument (here, it is of the <code>"plain"</code> output
 type).</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/vec_fmt_currency.html">vec_fmt_currency</a></span><span class="op">(</span><span class="va">num_vals</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; [1] "$5.20" "$8.65" "$0.00" "-$5.30" "NA"</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "$5.20" "$8.65" "$0.00" "-$5.30" "NA"</span></span></code></pre><p></p></div>
 <p>We can supply a currency code to the <code>currency</code> argument. Let's use British
 Pounds through <code>currency = "GBP"</code>:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/vec_fmt_currency.html">vec_fmt_currency</a></span><span class="op">(</span><span class="va">num_vals</span>, currency <span class="op">=</span> <span class="st">"GBP"</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; [1] "GBP5.20" "GBP8.65" "GBP0.00" "-GBP5.30" "NA"</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "GBP5.20" "GBP8.65" "GBP0.00" "-GBP5.30" "NA"</span></span></code></pre><p></p></div>
 <p>If we are formatting for a different locale, we could supply the locale ID
 and let <strong>gt</strong> handle all locale-specific formatting options:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/vec_fmt_currency.html">vec_fmt_currency</a></span><span class="op">(</span><span class="va">num_vals</span>, currency <span class="op">=</span> <span class="st">"EUR"</span>, locale <span class="op">=</span> <span class="st">"fr"</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; [1] "EUR5,20" "EUR8,65" "EUR0,00" "-EUR5,30" "NA"</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/vec_fmt_currency.html">vec_fmt_currency</a></span><span class="op">(</span><span class="va">num_vals</span>, locale <span class="op">=</span> <span class="st">"fr"</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "EUR5,20" "EUR8,65" "EUR0,00" "-EUR5,30" "NA"</span></span></code></pre><p></p></div>
 <p>There are many options for formatting values. Perhaps you need to have
 explicit positive and negative signs? Use <code>force_sign = TRUE</code> for that.</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/vec_fmt_currency.html">vec_fmt_currency</a></span><span class="op">(</span><span class="va">num_vals</span>, force_sign <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; [1] "+$5.20" "+$8.65" "$0.00" "-$5.30" "NA"</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "+$5.20" "+$8.65" "$0.00" "-$5.30" "NA"</span></span></code></pre><p></p></div>
 <p>As a last example, one can wrap the values in a pattern with the <code>pattern</code>
 argument. Note here that <code>NA</code> values won't have the pattern applied.</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/vec_fmt_currency.html">vec_fmt_currency</a></span><span class="op">(</span><span class="va">num_vals</span>, pattern <span class="op">=</span> <span class="st">"`{x}`"</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; [1] "`$5.20`" "`$8.65`" "`$0.00`" "`-$5.30`" "NA"</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "`$5.20`" "`$8.65`" "`$0.00`" "`-$5.30`" "NA"</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="function-id">Function ID<a class="anchor" aria-label="anchor" href="#function-id"></a></h2>
     
 
-<p>14-8</p>
+<p>15-8</p>
+    </div>
+    <div class="section level2">
+    <h2 id="function-introduced">Function Introduced<a class="anchor" aria-label="anchor" href="#function-introduced"></a></h2>
+    
+
+<p><code>v0.7.0</code> (Aug 25, 2022)</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other vector formatting functions: 
+    <div class="dont-index"><p>The variant function intended for formatting <strong>gt</strong> table data:
+<code><a href="fmt_currency.html">fmt_currency()</a></code>.</p>
+<p>Other vector formatting functions: 
 <code><a href="vec_fmt_bytes.html">vec_fmt_bytes</a>()</code>,
 <code><a href="vec_fmt_datetime.html">vec_fmt_datetime</a>()</code>,
 <code><a href="vec_fmt_date.html">vec_fmt_date</a>()</code>,
 <code><a href="vec_fmt_duration.html">vec_fmt_duration</a>()</code>,
 <code><a href="vec_fmt_engineering.html">vec_fmt_engineering</a>()</code>,
 <code><a href="vec_fmt_fraction.html">vec_fmt_fraction</a>()</code>,
+<code><a href="vec_fmt_index.html">vec_fmt_index</a>()</code>,
 <code><a href="vec_fmt_integer.html">vec_fmt_integer</a>()</code>,
 <code><a href="vec_fmt_markdown.html">vec_fmt_markdown</a>()</code>,
 <code><a href="vec_fmt_number.html">vec_fmt_number</a>()</code>,
@@ -355,6 +422,7 @@ argument. Note here that <code>NA</code> values won't have the pattern applied.<
 <code><a href="vec_fmt_percent.html">vec_fmt_percent</a>()</code>,
 <code><a href="vec_fmt_roman.html">vec_fmt_roman</a>()</code>,
 <code><a href="vec_fmt_scientific.html">vec_fmt_scientific</a>()</code>,
+<code><a href="vec_fmt_spelled_num.html">vec_fmt_spelled_num</a>()</code>,
 <code><a href="vec_fmt_time.html">vec_fmt_time</a>()</code></p></div>
     </div>
 
@@ -363,11 +431,11 @@ argument. Note here that <code>NA</code> values won't have the pattern applied.<
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Richard Iannone, Joe Cheng, Barret Schloerke, Ellis Hughes, <a href="https://jooyoungseo.github.io/" class="external-link">JooYoung Seo</a>, RStudio.</p>
+  <p></p><p>Developed by Richard Iannone, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, <a href="https://jooyoungseo.github.io/" class="external-link">JooYoung Seo</a>, Posit Software, PBC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
     </footer></div>
