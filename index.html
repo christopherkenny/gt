@@ -20,8 +20,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Easily Create Presentation-Ready Display Tables">
@@ -42,11 +42,11 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
     
     <a class="navbar-brand me-2" href="index.html">gt</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,10 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
-  <a class="nav-link" href="articles/intro-creating-gt-tables.html">Intro</a>
+  <a class="nav-link" href="articles/gt.html">Get started</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
@@ -65,14 +68,19 @@
     <a class="dropdown-item" href="articles/case-study-gtcars.html">Case Study: gtcars</a>
     <a class="dropdown-item" href="articles/creating-summary-lines.html">Creating Summary Lines</a>
     <a class="dropdown-item" href="articles/gt-datasets.html">gt Datasets</a>
-    <a class="dropdown-item" href="articles/intro-creating-gt-tables.html">Introduction to Creating gt Tables</a>
   </div>
 </li>
-<li class="nav-item">
-  <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="news/index.html">Changelog</a>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-news">News</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-news">
+    <h6 class="dropdown-header" data-toc-skip>Releases</h6>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/?search=gt%2520%25200.9.0">Version 0.9.0</a>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/new-features-upgrades-in-gt-0-8-0/">Version 0.8.0</a>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/all-new-things-in-gt-0-7-0/">Version 0.7.0</a>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/changes-for-the-better-in-gt-0-6-0/">Version 0.6.0</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="news/index.html">Changelog</a>
+  </div>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -115,7 +123,7 @@
 <hr>
 <p>The <strong>gt</strong> package is designed to be both straightforward yet powerful. The emphasis is on simple functions for the everyday display table needs. Here is a brief example of how to use <strong>gt</strong> to create a table from the included <code>sp500</code> dataset:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com">gt</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Define the start and end dates for the data range</span></span>
 <span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"2010-06-07"</span></span>
@@ -137,12 +145,12 @@
 <div align="center">
 <p><img src="reference/figures/gt_sp500_table.svg" width="800px"></p>
 </div>
-<p>There are ten datasets provided by <strong>gt</strong>: <code>countrypops</code>, <code>sza</code>, <code>gtcars</code>, <code>sp500</code>, <code>pizzaplace</code>, <code>exibble</code>, <code>towny</code>, <code>metro</code>, <code>rx_adsl</code>, and <code>rx_addv</code>.</p>
+<p>There are twelve datasets provided by <strong>gt</strong>: <code>countrypops</code>, <code>sza</code>, <code>gtcars</code>, <code>sp500</code>, <code>pizzaplace</code>, <code>exibble</code>, <code>towny</code>, <code>metro</code>, <code>constants</code>, <code>illness</code>, <code>rx_adsl</code>, and <code>rx_addv</code>.</p>
 <div align="center" style="padding-top:20px">
-<p><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_countrypops.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_sza.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_gtcars.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_sp500.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_pizzaplace.svg" style="width:18%;"></p>
+<p><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_countrypops.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_sza.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_gtcars.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_sp500.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_pizzaplace.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_exibble.svg" style="width:15%;"></p>
 </div>
 <div align="center" style="padding-bottom:20px">
-<p><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_exibble.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_towny.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_metro.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_rx_adsl.svg" style="width:18%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_rx_addv.svg" style="width:18%;"></p>
+<p><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_towny.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_metro.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_constants.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_illness.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_rx_adsl.svg" style="width:15%;"><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/dataset_rx_addv.svg" style="width:15%;"></p>
 </div>
 <p>All of this tabular data is great for experimenting with <strong>gt</strong>’s functions and we make extensive use of these datasets in our documentation.</p>
 <p>Beyond the functions shown in the simple <code>sp500</code>-based example, there are many functions available in <strong>gt</strong> for creating super-customized tables. Check out the <a href="https://gt.rstudio.com/">documentation website</a> to get started via introductory articles for making <strong>gt</strong> tables. There’s a handy <em>Reference</em> section that has detailed help for every function in the package.</p>
@@ -157,8 +165,8 @@
 <p>Let’s talk about making tables with <strong>gt</strong>! There are a few locations where there is much potential for discussion.</p>
 <p>One such place is in <a href="https://github.com/rstudio/gt/discussions" class="external-link"><em>GitHub Discussions</em></a>. This discussion board is especially great for Q&amp;A, and many people have had their problems solved in there.</p>
 <p><a href="https://github.com/rstudio/gt/discussions" class="external-link"><img src="https://img.shields.io/badge/GitHub%20Discussions-Ask%20about%20anything-blue?style=social&amp;logo=github&amp;logoColor=gray" alt="GitHub Discussions"></a></p>
-<p>Another fine venue for discussion is in the <a href="https://discord.gg/Ux7nrcXHVV" class="external-link"><code>gt_package</code> <em>Discord server</em></a>. This is a good option for asking about the development of <strong>gt</strong>, pitching ideas that may become features, and sharing your table creations!</p>
-<p><a href="https://discord.gg/Ux7nrcXHVV" class="external-link"><img src="https://img.shields.io/badge/Discord-Chat%20with%20us-blue?style=social&amp;logo=discord&amp;logoColor=purple" alt="Discord Server"></a></p>
+<p>Another fine venue for discussion is in the <a href="https://discord.com/invite/Ux7nrcXHVV" class="external-link"><code>gt_package</code> <em>Discord server</em></a>. This is a good option for asking about the development of <strong>gt</strong>, pitching ideas that may become features, and sharing your table creations!</p>
+<p><a href="https://discord.com/invite/Ux7nrcXHVV" class="external-link"><img src="https://img.shields.io/badge/Discord-Chat%20with%20us-blue?style=social&amp;logo=discord&amp;logoColor=purple" alt="Discord Server"></a></p>
 <p>Finally, there is the <a href="https://twitter.com/gt_package" class="external-link"><code>gt_package</code> <em>Twitter account</em></a>. There you’ll find tweets about <strong>gt</strong> (including sneak previews about in-development features) and other table-generation packages.</p>
 <p><a href="https://twitter.com/gt_package" class="external-link"><img src="https://img.shields.io/twitter/follow/gt_package?style=social" alt="Twitter Follow"></a></p>
 <p>These are all great places to ask questions about how to use the package, discuss some ideas, engage with others, and much more!</p>
@@ -175,41 +183,6 @@
 <hr>
 </div>
 <div class="section level2">
-<h2 id="how-gt-fits-in-with-other-packages-that-generate-display-tables">How <strong>gt</strong> fits in with Other Packages that Generate Display Tables<a class="anchor" aria-label="anchor" href="#how-gt-fits-in-with-other-packages-that-generate-display-tables"></a>
-</h2>
-<p>The <strong>gt</strong> package joins a burgeoning collection of packages for display table generation. Why another? We feel that there is enough room in this space to innovate further. Here are some of the ways that <strong>gt</strong> contributes to this ecosystem:</p>
-<ul>
-<li>the interface is high-level and declarative (general instructions versus very specific)</li>
-<li>the formatting options are ‘batteries included’ (scientific notation, uncertainty, ranges, percentages, suffixes, localized currency, dates/times + much more)</li>
-<li>there is excellent, pain-free support for footnotes</li>
-<li>the output is ‘camera-ready’</li>
-<li>multiple output formats are supported with the same declarative interface</li>
-<li>the API closely follows tidyverse conventions by adhering to the <a href="https://style.tidyverse.org" class="external-link">tidyverse style guide</a>
-</li>
-<li>there’s a focus on making the package documentation and examples the best they can be</li>
-<li>rigorous QA/QC measures: high test coverage for automated tests, and thorough manual testing by QA engineers (with every proposed code change)</li>
-</ul>
-<p>While <strong>gt</strong> is trying to do something different with its own interface, it may not suit your specific needs. Here is a listing of other leading table-making <strong>R</strong> packages, with links to their respective project pages:</p>
-<ul>
-<li>
-<strong>knitr</strong> (<a href="https://github.com/yihui/knitr" class="external-link">GITHUB</a>, <a href="https://yihui.org/knitr/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>DT</strong> (<a href="https://github.com/rstudio/DT" class="external-link">GITHUB</a>, <a href="https://rstudio.github.io/DT/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>reactable</strong> (<a href="https://github.com/glin/reactable" class="external-link">GITHUB</a>, <a href="https://glin.github.io/reactable/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>flextable</strong> (<a href="https://github.com/davidgohel/flextable" class="external-link">GITHUB</a>, <a href="https://davidgohel.github.io/flextable/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>kableExtra</strong> (<a href="https://github.com/haozhu233/kableExtra" class="external-link">GITHUB</a>, <a href="https://haozhu233.github.io/kableExtra/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>formattable</strong> (<a href="https://github.com/renkun-ken/formattable" class="external-link">GITHUB</a>, <a href="https://renkun-ken.github.io/formattable/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>huxtable</strong> (<a href="https://github.com/hughjonesd/huxtable" class="external-link">GITHUB</a>, <a href="https://hughjonesd.github.io/huxtable/" class="external-link">WEBSITE</a>)</li>
-<li>
-<strong>ftextra</strong> (<a href="https://github.com/atusy/ftExtra" class="external-link">GITHUB</a>, <a href="https://ftextra.atusy.net/" class="external-link">WEBSITE</a>)</li>
-</ul>
-</div>
-<div class="section level2">
 <h2 id="packages-that-use-or-extend-gt">Packages that use or extend <strong>gt</strong>
 <a class="anchor" aria-label="anchor" href="#packages-that-use-or-extend-gt"></a>
 </h2>
@@ -220,7 +193,7 @@
 <li>
 <strong>gtExtras</strong> (<a href="https://github.com/jthomasmock/gtExtras" class="external-link">GITHUB</a>, <a href="https://jthomasmock.github.io/gtExtras/" class="external-link">WEBSITE</a>)</li>
 <li>
-<strong>pointblank</strong> (<a href="https://github.com/rich-iannone/pointblank" class="external-link">GITHUB</a>, <a href="https://rich-iannone.github.io/pointblank/" class="external-link">WEBSITE</a>)</li>
+<strong>pointblank</strong> (<a href="https://github.com/rstudio/pointblank" class="external-link">GITHUB</a>, <a href="https://rstudio.github.io/pointblank/" class="external-link">WEBSITE</a>)</li>
 <li>
 <strong>tfrmt</strong> (<a href="https://github.com/GSK-Biostatistics/tfrmt" class="external-link">GITHUB</a>, <a href="https://gsk-biostatistics.github.io/tfrmt/" class="external-link">WEBSITE</a>)</li>
 <li>

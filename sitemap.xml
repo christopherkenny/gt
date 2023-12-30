@@ -19,6 +19,9 @@
     <loc>https://gt.rstudio.com/PULL_REQUEST_TEMPLATE.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/SECURITY.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/articles/case-study-clinical-tables.html</loc>
   </url>
   <url>
@@ -31,10 +34,10 @@
     <loc>https://gt.rstudio.com/articles/gt-datasets.html</loc>
   </url>
   <url>
-    <loc>https://gt.rstudio.com/articles/index.html</loc>
+    <loc>https://gt.rstudio.com/articles/gt.html</loc>
   </url>
   <url>
-    <loc>https://gt.rstudio.com/articles/intro-creating-gt-tables.html</loc>
+    <loc>https://gt.rstudio.com/articles/index.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/authors.html</loc>
@@ -115,6 +118,9 @@
     <loc>https://gt.rstudio.com/reference/cells_title.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/cols_add.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/cols_align.html</loc>
   </url>
   <url>
@@ -151,10 +157,19 @@
     <loc>https://gt.rstudio.com/reference/cols_move_to_start.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/cols_nanoplot.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/cols_unhide.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/cols_units.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/cols_width.html</loc>
+  </url>
+  <url>
+    <loc>https://gt.rstudio.com/reference/constants.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/countrypops.html</loc>
@@ -169,10 +184,16 @@
     <loc>https://gt.rstudio.com/reference/default_fonts.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/define_units.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/escape_latex.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/exibble.html</loc>
+  </url>
+  <url>
+    <loc>https://gt.rstudio.com/reference/extract_body.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/extract_cells.html</loc>
@@ -214,6 +235,9 @@
     <loc>https://gt.rstudio.com/reference/fmt_fraction.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/fmt_icon.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/fmt_image.html</loc>
   </url>
   <url>
@@ -253,7 +277,13 @@
     <loc>https://gt.rstudio.com/reference/fmt_time.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/fmt_units.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/fmt_url.html</loc>
+  </url>
+  <url>
+    <loc>https://gt.rstudio.com/reference/from_column.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/ggplot_image.html</loc>
@@ -316,6 +346,9 @@
     <loc>https://gt.rstudio.com/reference/html.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/illness.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/index.html</loc>
   </url>
   <url>
@@ -325,7 +358,13 @@
     <loc>https://gt.rstudio.com/reference/info_date_style.html</loc>
   </url>
   <url>
+    <loc>https://gt.rstudio.com/reference/info_flags.html</loc>
+  </url>
+  <url>
     <loc>https://gt.rstudio.com/reference/info_google_fonts.html</loc>
+  </url>
+  <url>
+    <loc>https://gt.rstudio.com/reference/info_icons.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/info_locales.html</loc>
@@ -344,6 +383,9 @@
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/metro.html</loc>
+  </url>
+  <url>
+    <loc>https://gt.rstudio.com/reference/nanoplot_options.html</loc>
   </url>
   <url>
     <loc>https://gt.rstudio.com/reference/opt_align_table_header.html</loc>

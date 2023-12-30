@@ -5,7 +5,7 @@ The new rows are added to the bottom of the table by default but can be added
 internally though by using either the .before or .after arguments. If
 entirely empty rows need to be added, the .n_empty option provides a means
 to specify the number of blank (i.e., all NA) rows to be inserted into the
-table."><title>Add one or more rows to a gt table — rows_add • gt</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet"><meta property="og:title" content="Add one or more rows to a gt table — rows_add"><meta property="og:description" content="It's possible to add new rows to your table with rows_add() by supplying
+table."><title>Add one or more rows to a gt table — rows_add • gt</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet"><meta property="og:title" content="Add one or more rows to a gt table — rows_add"><meta property="og:description" content="It's possible to add new rows to your table with rows_add() by supplying
 the new row data through name-value pairs or two-sided formula expressions.
 The new rows are added to the bottom of the table by default but can be added
 internally though by using either the .before or .after arguments. If
@@ -18,11 +18,11 @@ table."><meta property="og:image" content="https://gt.rstudio.com/logo.svg"><!--
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">gt</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.9.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,10 @@ table."><meta property="og:image" content="https://gt.rstudio.com/logo.svg"><!--
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item">
-  <a class="nav-link" href="../articles/intro-creating-gt-tables.html">Intro</a>
+  <a class="nav-link" href="../articles/gt.html">Get started</a>
+</li>
+<li class="active nav-item">
+  <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
@@ -40,14 +43,19 @@ table."><meta property="og:image" content="https://gt.rstudio.com/logo.svg"><!--
     <a class="dropdown-item" href="../articles/case-study-gtcars.html">Case Study: gtcars</a>
     <a class="dropdown-item" href="../articles/creating-summary-lines.html">Creating Summary Lines</a>
     <a class="dropdown-item" href="../articles/gt-datasets.html">gt Datasets</a>
-    <a class="dropdown-item" href="../articles/intro-creating-gt-tables.html">Introduction to Creating gt Tables</a>
   </div>
 </li>
-<li class="active nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="../news/index.html">Changelog</a>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-news">News</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-news">
+    <h6 class="dropdown-header" data-toc-skip>Releases</h6>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/?search=gt%2520%25200.9.0">Version 0.9.0</a>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/new-features-upgrades-in-gt-0-8-0/">Version 0.8.0</a>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/all-new-things-in-gt-0-7-0/">Version 0.7.0</a>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/changes-for-the-better-in-gt-0-6-0/">Version 0.6.0</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="../news/index.html">Changelog</a>
+  </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -96,14 +104,14 @@ table.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.data</dt>
 <dd><p><em>The gt table data object</em></p>
-<p><code>obj:&lt;gt_tbl&gt;</code> --- <strong>required</strong></p>
+<p><code>obj:&lt;gt_tbl&gt;</code> // <strong>required</strong></p>
 <p>This is the <strong>gt</strong> table object that is commonly created through use of the
 <code><a href="gt.html">gt()</a></code> function.</p></dd>
 
 
 <dt>...</dt>
 <dd><p><em>Cell data assignments</em></p>
-<p><code>&lt;multiple expressions&gt;</code> --- (or, use <code>.list</code>)</p>
+<p><code>&lt;multiple expressions&gt;</code> // (or, use <code>.list</code>)</p>
 <p>Expressions for the assignment of cell values to the new rows by column
 name in <code>.data</code>. Name-value pairs, in the form of
 <code>&lt;column&gt; = &lt;value vector&gt;</code> will work, so long as the <code>&lt;column&gt;</code> value
@@ -119,13 +127,13 @@ in cases where there are multiple rows to be added.</p></dd>
 
 <dt>.list</dt>
 <dd><p><em>Alternative to <code>...</code></em></p>
-<p><code>&lt;list of multiple expressions&gt;</code> --- (or, use <code>...</code>)</p>
+<p><code>&lt;list of multiple expressions&gt;</code> // (or, use <code>...</code>)</p>
 <p>Allows for the use of a list as an input alternative to <code>...</code>.</p></dd>
 
 
 <dt>.before, .after</dt>
 <dd><p><em>Row used as anchor</em></p>
-<p><code>&lt;row-targeting expression&gt;</code> --- <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
+<p><code>&lt;row-targeting expression&gt;</code> // <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
 <p>A single row-resolving expression or row index an be given to either
 <code>.before</code> or <code>.after</code>. The row specifies where the new rows should be
 positioned among the existing rows in the input data table. While select
@@ -139,7 +147,7 @@ table.</p></dd>
 
 <dt>.n_empty</dt>
 <dd><p><em>Number of empty rows to add</em></p>
-<p><code>scalar&lt;numeric|integer&gt;(val&gt;=0)</code> --- <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
+<p><code>scalar&lt;numeric|integer&gt;(val&gt;=0)</code> // <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
 <p>An option to add empty rows in lieu of rows containing data that would
 otherwise be supplied to <code>...</code> or <code>.list</code>. If the option is taken, provide
 an integer value here.</p></dd>
@@ -156,7 +164,7 @@ an integer value here.</p></dd>
     
 
 
-<p>The targeting of a rows for insertion is done through the <code>.before</code> or
+<p>The targeting of a row for insertion is done through the <code>.before</code> or
 <code>.after</code> arguments (only one of these options should be be used). This can be
 done in a variety of ways. If a stub is present, then we potentially have row
 identifiers. This is the ideal method to use for establishing a row target.
@@ -165,8 +173,8 @@ possible to use row indices (e.g., <code>c(3, 5, 6)</code>) though these index v
 must correspond to the row numbers of the input data (the indices won't
 necessarily match those of rearranged rows if row groups are present). One
 more type of expression is possible, an expression that takes column values
-(can involve any of the available columns in the table) and returns a
-logical vector.</p>
+(can involve any of the available columns in the table) and returns a logical
+vector.</p>
     </div>
     <div class="section level2">
     <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a></h2>
@@ -304,6 +312,47 @@ both the <code>a</code> and <code>b</code> columns. A similar approach was taken
 <code>72.63</code> value to the <code>quantity_x</code> and <code>quantity_y</code> columns though we used the
 <code>starts_with("quantity")</code> expression to get <strong>gt</strong> to resolve those two
 columns.</p>
+<p>You can start with an empty table (i.e., no columns and no rows) and add one
+or more rows to it. In the completely empty table scenario, where you would
+use something like <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">dplyr::tibble()</a></code> or <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with <code><a href="gt.html">gt()</a></code>, the first
+<code>rows_add()</code> could have rows of arbitrary width. In other words, you get to
+generate table columns (and rows) with a completely empty table via
+<code>rows_add()</code>. Here's an example of that:</p>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/gt.html">gt</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/rows_add.html">rows_add</a></span><span class="op">(</span></span>
+<span>    msrp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">29.95</span>, <span class="fl">49.95</span>, <span class="fl">79.95</span><span class="op">)</span>,</span>
+<span>    item <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Klax"</span>, <span class="st">"Rez"</span>, <span class="st">"Ys"</span><span class="op">)</span>,</span>
+<span>    type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"X"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/rows_add.html">rows_add</a></span><span class="op">(</span></span>
+<span>    msrp <span class="op">=</span> <span class="fl">14.95</span>,</span>
+<span>    item <span class="op">=</span> <span class="st">"D"</span>,</span>
+<span>    type <span class="op">=</span> <span class="st">"Z"</span></span>
+<span>  <span class="op">)</span></span></code></pre><p></p></div>
+<p><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/man_rows_add_7.png" alt="This image of a table was generated from the seventh code example in the `rows_add()` help file." style="width:100%;"></p>
+<p>In the above, three columns and three rows were generated. The second usage
+of <code>rows_add()</code> had to use of a subset of those columns (all three were used
+to create a complete, new row).</p>
+<p>We can also start with a virtually empty table: one that has columns but no
+actual rows. With this type of multi-column, zero-row table, one needs to use
+a subset of the columns when generating new rows through <code>rows_add()</code>.</p>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  msrp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
+<span>  item <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/rows_add.html">rows_add</a></span><span class="op">(</span></span>
+<span>    msrp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">29.95</span>, <span class="fl">49.95</span>, <span class="fl">79.95</span>, <span class="fl">14.95</span><span class="op">)</span>,</span>
+<span>    item <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Klax"</span>, <span class="st">"Rez"</span>, <span class="st">"Ys"</span>, <span class="st">"D"</span><span class="op">)</span>,</span>
+<span>    type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"X"</span>, <span class="st">"Z"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/cols_add.html">cols_add</a></span><span class="op">(</span></span>
+<span>    genre <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"puzzle"</span>, <span class="st">"action"</span>, <span class="st">"RPG"</span>, <span class="st">"adventure"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/fmt_currency.html">fmt_currency</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/cols_move_to_end.html">cols_move_to_end</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="va">msrp</span><span class="op">)</span></span></code></pre><p></p></div>
+<p><img src="https://raw.githubusercontent.com/rstudio/gt/master/images/man_rows_add_8.png" alt="This image of a table was generated from the eighth code example in the `rows_add()` help file." style="width:100%;"></p>
     </div>
     <div class="section level2">
     <h2 id="function-id">Function ID<a class="anchor" aria-label="anchor" href="#function-id"></a></h2>
@@ -315,7 +364,7 @@ columns.</p>
     <h2 id="function-introduced">Function Introduced<a class="anchor" aria-label="anchor" href="#function-introduced"></a></h2>
     
 
-<p><code>0.9.1</code> (in development)</p>
+<p><code>v0.10.0</code> (October 7, 2023)</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
