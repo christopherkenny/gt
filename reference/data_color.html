@@ -84,7 +84,7 @@ without running into too many errors."><meta property="og:image" content="https:
     
     <a class="navbar-brand me-2" href="../index.html">gt</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.10.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,6 +111,7 @@ without running into too many errors."><meta property="og:image" content="https:
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-news">News</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-news">
     <h6 class="dropdown-header" data-toc-skip>Releases</h6>
+    <a class="external-link dropdown-item" href="https://posit.co/blog/new-features-in-gt-0-10-0/">Version 0.10.0</a>
     <a class="external-link dropdown-item" href="https://posit.co/blog/?search=gt%2520%25200.9.0">Version 0.9.0</a>
     <a class="external-link dropdown-item" href="https://posit.co/blog/new-features-upgrades-in-gt-0-8-0/">Version 0.8.0</a>
     <a class="external-link dropdown-item" href="https://posit.co/blog/all-new-things-in-gt-0-7-0/">Version 0.7.0</a>
@@ -332,9 +333,10 @@ providing a color-mapping function to <code>fn</code>.</p></dd>
 <dt>alpha</dt>
 <dd><p><em>Transparency value</em></p>
 <p><code>scalar&lt;numeric|integer&gt;(0&gt;=val&gt;=1)</code> // <em>default:</em> <code>NULL</code> (<code>optional</code>)</p>
-<p>An optional, fixed alpha transparency value that will be applied to all of
-the <code>colors</code> provided (regardless of whether a color palette was directly
-supplied or generated through a color mapping function).</p></dd>
+<p>An optional, fixed alpha transparency value that will be applied to all
+color palette values (regardless of whether a color palette was directly
+supplied in <code>palette</code> or generated through a color mapping function via
+<code>fn</code>).</p></dd>
 
 
 <dt>reverse</dt>
@@ -795,7 +797,7 @@ gray cells for the missing values (we also removed the <code>"NA"</code> text wi
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Richard Iannone, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, <a href="https://jooyoungseo.github.io/" class="external-link">JooYoung Seo</a>, Posit Software, PBC.</p>
+  <p></p><p>Developed by Richard Iannone, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, <a href="https://jooyoungseo.github.io/" class="external-link">JooYoung Seo</a>, Ken Brevoort, Posit Software, PBC.</p>
 </div>
 
 <div class="pkgdown-footer-right">
