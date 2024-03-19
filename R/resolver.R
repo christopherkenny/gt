@@ -472,6 +472,9 @@ resolve_vector_l <- function(
 }
 
 resolve_vector_i <- function(expr, vector, item_label = "item") {
+  if (is.null(vector)) {
+    return(integer(0))
+  }
   which(resolve_vector_l(expr = {{ expr }}, vector = vector, item_label = item_label))
 }
 

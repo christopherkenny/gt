@@ -126,12 +126,12 @@ add_summary_location_row <- function(
         item_label = "summary row"
       )
 
-    if (length(rows) == 0) {
-      cli::cli_abort(c(
-        "The location requested could not be resolved.",
-        "*" = "Review the expression provided as `rows`."
-      ))
-    }
+    # if (length(rows) == 0) {
+    #   cli::cli_abort(c(
+    #     "The location requested could not be resolved.",
+    #     "*" = "Review the expression provided as `rows`."
+    #   ))
+    # }
 
     if (df_type == "footnotes_df") {
 
@@ -218,12 +218,12 @@ add_grand_summary_location_row <- function(
       item_label = "grand summary row"
     )
 
-  if (length(rows) == 0) {
-    cli::cli_abort(c(
-      "The location requested could not be resolved.",
-      "*" = "Review the expression provided as `rows`."
-    ))
-  }
+  # if (length(rows) == 0) {
+  #   cli::cli_abort(c(
+  #     "The location requested could not be resolved.",
+  #     "*" = "Review the expression provided as `rows`."
+  #   ))
+  # }
 
   if (df_type == "footnotes_df") {
 
