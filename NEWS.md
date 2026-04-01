@@ -2,6 +2,8 @@
 
 * Expand functionality of `gt_group()` to allow `gt_group` objects to be combined with `gt_tbls` (#2128)
 
+* Added Typst output support with the new `as_typst()` export function, Typst-aware `knit_print()`/`gtsave(.typ)` handling, Quarto-friendly table and cross-reference output, and support for styled tables with captions, notes, summaries, labels, and markdown content.
+
 # gt 1.3.0
 
 ## New features
