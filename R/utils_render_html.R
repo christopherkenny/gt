@@ -282,6 +282,12 @@ get_table_defs <- function(data) {
   widths <- widths[seq_len(nrow(widths)), "column_width", drop = TRUE]
   widths <- unlist(widths)
 
+  has_fractional_widths <- any(vapply(widths, is_fractional_col_width, logical(1L)))
+
+  if (has_fractional_widths) {
+    widths <- html_resolve_fractional_col_widths(widths)
+  }
+
   # Stop function if all length dimensions (where provided)
   # don't conform to accepted CSS length definitions
   validate_css_lengths(widths)
@@ -295,6 +301,8 @@ get_table_defs <- function(data) {
       # FIXME sometimes ends up being 0? #1532 and quarto-dev/quarto-cli#8233
       table_width <- "0px"
     } else if (all(grepl("%", widths, fixed = TRUE))) {
+      table_width <- "100%"
+    } else if (has_fractional_widths) {
       table_width <- "100%"
     }
   }
@@ -326,6 +334,60 @@ get_table_defs <- function(data) {
     table_style = table_style,
     table_colgroups = table_colgroups
   )
+}
+
+html_resolve_fractional_col_widths <- function(widths) {
+
+  widths <- ifelse(is.na(widths), "", widths)
+
+  weights <- fractional_col_width_weights(widths, include_unspecified = FALSE)
+  weighted_cols <- !is.na(weights)
+
+  if (!any(weighted_cols)) {
+    return(widths)
+  }
+
+  weight_total <- sum(weights[weighted_cols])
+  absolute_terms <- widths[nzchar(widths) & !grepl("%$", widths) & !weighted_cols]
+  percentage_terms <- widths[grepl("%$", widths)]
+  percentage_total <- sum(as.numeric(sub("%$", "", percentage_terms)), na.rm = TRUE)
+
+  widths[weighted_cols] <-
+    vapply(
+      weights[weighted_cols],
+      FUN = function(weight) {
+
+        if (weight_total <= 0) {
+          return("0%")
+        }
+
+        share <- weight / weight_total
+
+        if (length(absolute_terms) < 1 && percentage_total <= 0) {
+          return(sprintf("%.4f%%", 100 * share))
+        }
+
+        if (length(absolute_terms) < 1) {
+          remaining <- max(0, 100 - percentage_total)
+          return(sprintf("%.4f%%", remaining * share))
+        }
+
+        remaining_terms <- c("100%", absolute_terms)
+
+        if (length(percentage_terms) > 0) {
+          remaining_terms <- c(remaining_terms, percentage_terms)
+        }
+
+        sprintf(
+          "calc((%s) * %.10g)",
+          paste(remaining_terms, collapse = " - "),
+          share
+        )
+      },
+      FUN.VALUE = character(1L)
+    )
+
+  widths
 }
 
 create_caption_component_h <- function(data) {

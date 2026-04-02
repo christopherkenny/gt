@@ -63,13 +63,15 @@
 #'
 #' @details
 #'
-#' Column widths can be set as absolute or relative values (with px and
-#' percentage values). Those columns not specified are treated as having
+#' Column widths can be set as absolute or relative values (with px,
+#' percentage, and fraction values). Those columns not specified are treated as having
 #' variable width. The sizing behavior for column widths depends on the
 #' combination of value types, and, whether a table width has been set (which
 #' could, itself, be expressed as an absolute or relative value). Widths for the
 #' table and its container can be individually modified with the `table.width`
-#' and `container.width` arguments within [tab_options()]).
+#' and `container.width` arguments within [tab_options()]). When using [fr()]
+#' for portable output, it's best to assign widths to all flexible columns; RTF
+#' output requires explicit widths for all visible columns.
 #'
 #' @section Examples:
 #'
@@ -204,4 +206,36 @@ cols_width <- function(
   }
 
   .data
+}
+
+is_fractional_col_width <- function(x) {
+
+  if (length(x) == 0 || is.null(x) || is.na(x) || !nzchar(x)) {
+    return(FALSE)
+  }
+
+  grepl("^[0-9.]+fr$", trimws(x))
+}
+
+fractional_col_width_value <- function(x) {
+
+  if (!is_fractional_col_width(x)) {
+    return(NA_real_)
+  }
+
+  as.numeric(sub("fr$", "", trimws(x)))
+}
+
+fractional_col_width_weights <- function(widths, include_unspecified = FALSE) {
+
+  widths <- ifelse(is.na(widths), "", widths)
+
+  weights <- vapply(widths, fractional_col_width_value, numeric(1L))
+
+  if (include_unspecified) {
+    unspecified <- !nzchar(widths)
+    weights[unspecified] <- 1
+  }
+
+  weights
 }

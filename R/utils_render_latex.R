@@ -2401,6 +2401,8 @@ create_colwidth_df_l <- function(data) {
   boxhead <- dt_boxhead_get(data)
   tbl_width <- dt_options_get_value(data = data, option = "table_width")
   stub_layout <- get_stub_layout(data = data)
+  raw_widths <- vapply(boxhead$column_width, function(x) unlist(x)[1L], character(1L))
+  fractional_weights <- fractional_col_width_weights(raw_widths, include_unspecified = FALSE)
 
   n <- dim(boxhead)[1L]
   width_df <- data.frame(
@@ -2414,12 +2416,53 @@ create_colwidth_df_l <- function(data) {
 
   width_df$column_align[width_df$type %in% c("stub", "row_group")] <- "left"
 
-  for (i in 1:n) {
-    raw <- unlist(boxhead$column_width[i])[1L]
+  abs_total_pt <- 0
+  pct_total <- 0
 
-    if (is.null(raw) || raw == "") {
+  for (i in seq_len(n)) {
+    raw <- raw_widths[i]
+
+    if (is.null(raw) || raw == "" || is_fractional_col_width(raw)) {
+      next
+    } else if (endsWith(raw, "%")) {
+      pct_total <- pct_total + as.numeric(gsub("%", "", raw, fixed = TRUE))
+    } else {
+      abs_total_pt <- abs_total_pt + convert_to_pt(raw)
+    }
+  }
+
+  weighted_total <- sum(fractional_weights, na.rm = TRUE)
+
+  if (tbl_width == "auto") {
+    table_target_pt <- NA_real_
+    table_target_lw <- 1
+    pct_total_lw <- pct_total / 100
+  } else if (endsWith(tbl_width, "%")) {
+    table_target_pt <- NA_real_
+    table_target_lw <- as.numeric(gsub("%", "", tbl_width, fixed = TRUE)) / 100
+    pct_total_lw <- pct_total / 100 * table_target_lw
+  } else {
+    table_target_pt <- convert_to_pt(tbl_width)
+    table_target_lw <- 0
+    pct_total_lw <- 0
+    pct_total_pt <- pct_total / 100 * table_target_pt
+  }
+
+  for (i in 1:n) {
+    raw <- raw_widths[i]
+
+    if ((is.null(raw) || raw == "") && is.na(fractional_weights[i])) {
       width_df$unspec[i] <- 1L
       next
+    } else if (!is.na(fractional_weights[i])) {
+      share <- if (weighted_total > 0) fractional_weights[i] / weighted_total else 0
+
+      if (table_target_lw > 0) {
+        width_df$pt[i] <- -share * abs_total_pt
+        width_df$lw[i] <- share * max(0, table_target_lw - pct_total_lw)
+      } else {
+        width_df$pt[i] <- share * max(0, table_target_pt - abs_total_pt - pct_total_pt)
+      }
     } else if (endsWith(raw, "%")) {
       pct <- as.numeric(gsub("%", "", raw, fixed = TRUE))
 
@@ -2511,14 +2554,23 @@ calculate_multicolumn_width_text_l <- function(begins, ends, col_order, colwidth
 
 create_singlecolumn_width_text_l <- function(pt, lw) {
 
-  if (pt <= 0L && lw <= 0L) {
+  if (abs(pt) < 1e-10 && abs(lw) < 1e-10) {
     out_txt <- "0pt"
-  } else if (pt <= 0L) {
-    out_txt <- sprintf("\\dimexpr %.2f\\linewidth -2\\tabcolsep-1.5\\arrayrulewidth", lw)
-  } else if (lw <= 0L) {
-    out_txt <- sprintf("\\dimexpr %.2fpt -2\\tabcolsep-1.5\\arrayrulewidth", pt)
   } else {
-    out_txt <- sprintf("\\dimexpr %.2fpt + %.2f\\linewidth -2\\tabcolsep-1.5\\arrayrulewidth", pt, lw)
+    terms <- character()
+
+    if (abs(pt) >= 1e-10) {
+      terms <- c(terms, sprintf("%.2fpt", pt))
+    }
+
+    if (abs(lw) >= 1e-10) {
+      terms <- c(terms, sprintf("%.2f\\linewidth", lw))
+    }
+
+    out_txt <- sprintf(
+      "\\dimexpr %s -2\\tabcolsep-1.5\\arrayrulewidth",
+      paste(terms, collapse = " + ")
+    )
   }
 
   out_txt

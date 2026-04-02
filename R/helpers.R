@@ -307,6 +307,62 @@ pct <- function(x) {
   paste0(x, "%")
 }
 
+# fr() -------------------------------------------------------------------------
+#' Helper for providing a numeric value as a fraction unit
+#'
+#' @description
+#'
+#' A fraction value acts as a flexible length unit for proportional sizing.
+#' With [cols_width()], `fr()` can be used to allocate the remaining width
+#' proportionally across columns. In Typst output, the fraction units are
+#' emitted directly. In other output formats, they are resolved to
+#' backend-appropriate width expressions before rendering. For the most
+#' portable results, use `fr()` on all flexible columns in the table. In
+#' RTF output, `fr()` requires explicit widths for all visible columns.
+#'
+#' @param x *Numeric value in fraction units*
+#'
+#'   `scalar<numeric|integer>` // **required**
+#'
+#'   The numeric value to format as a string fraction for use with
+#'   [cols_width()].
+#'
+#' @return A character vector with a single value in fraction units.
+#'
+#' @section Examples:
+#'
+#' Use the [`gtcars`] dataset to create a **gt** table. With [cols_width()],
+#' we'll use `fr()` to specify that one column should take up one fraction unit
+#' and another should take up two fraction units.
+#'
+#' ```r
+#' gtcars |>
+#'   dplyr::select(mfr, model) |>
+#'   dplyr::slice(1:5) |>
+#'   gt() |>
+#'   cols_width(
+#'     mfr ~ fr(1),
+#'     model ~ fr(2)
+#'   )
+#' ```
+#'
+#' @family helper functions
+#' @section Function ID:
+#' 8-5
+#'
+#' @section Function Introduced:
+#' `v1.3.0.9000` (April 1, 2026)
+#'
+#' @export
+fr <- function(x) {
+
+  if (mode(x) != "numeric") {
+    cli::cli_abort("The supplied value must be numeric.")
+  }
+
+  paste0(x, "fr")
+}
+
 # from_column() ----------------------------------------------------------------
 #' Reference a column of values for certain parameters
 #'

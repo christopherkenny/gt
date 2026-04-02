@@ -1109,6 +1109,46 @@ test_that("column widths are accurately reflected in Latex multicolumn statement
   expect_snapshot(as_latex(gt_tbl))
 })
 
+test_that("fractional column widths resolve safely across output types", {
+
+  tbl <-
+    exibble |>
+    dplyr::select(num, currency, char) |>
+    gt() |>
+    cols_width(
+      num ~ px(120),
+      currency ~ pct(40),
+      char ~ fr(1)
+    )
+
+  html <- expect_no_error(as_raw_html(tbl))
+  latex <- expect_no_error(as_latex(tbl))
+  expect_no_error(as_rtf(tbl))
+
+  expect_match(
+    html,
+    "calc\\(\\(100% - 120px - 40%\\) \\* 1\\)"
+  )
+  expect_match(
+    latex,
+    "\\\\dimexpr -90\\.00pt \\+ 0\\.60\\\\linewidth -2\\\\tabcolsep-1\\.5\\\\arrayrulewidth"
+  )
+})
+
+test_that("fractional widths in RTF require explicit widths for visible columns", {
+
+  tbl <-
+    exibble |>
+    dplyr::select(num, currency, char) |>
+    gt() |>
+    cols_width(num ~ fr(1))
+
+  expect_error(
+    as_rtf(tbl),
+    "assign explicit widths to all visible columns"
+  )
+})
+
 test_that("check cols_width is applied gt_group", {
 
   # Create a `gt_group` object with two `gt_tbl` objects

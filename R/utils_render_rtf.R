@@ -449,6 +449,20 @@ col_width_resolver_rtf <- function(
     col_widths <- rep_len("", n_cols)
   }
 
+  has_fractional_widths <- any(vapply(col_widths, is_fractional_col_width, logical(1L)))
+  fractional_weights <- fractional_col_width_weights(col_widths, include_unspecified = FALSE)
+  col_widths_parse <- col_widths
+
+  if (has_fractional_widths) {
+    if (any(nzchar(col_widths) == FALSE & is.na(fractional_weights))) {
+      cli::cli_abort(
+        "When using `fr()` with RTF output, assign explicit widths to all visible columns."
+      )
+    }
+
+    col_widths_parse[!is.na(fractional_weights)] <- ""
+  }
+
   table_width <- abs_len_to_twips(parse_length_str(table_width))
 
   # For a table width set as a percentage, convert it to twips
@@ -462,7 +476,7 @@ col_width_resolver_rtf <- function(
   # Ensure that the `table_width` unit is `"tw"`
   stopifnot(isTRUE(table_width$unit == "tw"))
 
-  col_widths <- abs_len_to_twips(parse_length_str(col_widths))
+  col_widths <- abs_len_to_twips(parse_length_str(col_widths_parse))
 
   is_udf <- is.na(col_widths$value) & is.na(col_widths$unit)
   is_abs <- !is_udf & col_widths$unit == "tw"
@@ -478,11 +492,27 @@ col_width_resolver_rtf <- function(
   # fraction_remaining -= [fraction used by explicit percentages]
   fraction_remaining <- max(0, fraction_remaining - (sum(col_widths$value[is_pct]) / 100))
 
-  # Distribute fraction_remaining among undefined-width cols
-  col_widths$value[is_udf] <- (fraction_remaining / sum(is_udf) * 100)
-  col_widths$unit[is_udf] <- "%"
-  is_pct <- is_pct | is_udf
-  is_udf <- is_udf & FALSE
+  if (has_fractional_widths) {
+    weighted_cols <- !is.na(fractional_weights)
+    total_weight <- sum(fractional_weights[weighted_cols])
+
+    if (total_weight > 0) {
+      col_widths$value[weighted_cols] <-
+        fraction_remaining * 100 * fractional_weights[weighted_cols] / total_weight
+    } else {
+      col_widths$value[weighted_cols] <- 0
+    }
+
+    col_widths$unit[weighted_cols] <- "%"
+    is_pct <- is_pct | weighted_cols
+    is_udf <- is_udf & !weighted_cols
+  } else {
+    # Distribute fraction_remaining among undefined-width cols
+    col_widths$value[is_udf] <- (fraction_remaining / sum(is_udf) * 100)
+    col_widths$unit[is_udf] <- "%"
+    is_pct <- is_pct | is_udf
+    is_udf <- is_udf & FALSE
+  }
 
   pct_used <- sum(col_widths$value[is_pct])
   # Avoid divide-by-zero
